@@ -36,6 +36,11 @@ function promptUser() {
         type: "input",
         name: "contributing",
         message: "What does the user need to know about contributing to the repo?"
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is your email address?"
       }
     ]);
   }
@@ -44,10 +49,10 @@ const questions = [
 
 ];
 
-function writeToFile("README.md", text) {
-}
+// function writeToFile("README.md", Markdown) {
+// }
 
-function init() {
+async function init() {
     console.log("hi")
     try {
       const answers = await promptUser();
