@@ -42,12 +42,22 @@ function promptUser() {
         name: "email",
         message: "What is your email address?"
       }
-    ]);
-  }
+    ]).then(function(data) {
 
-const questions = [
+        var filename = "README.md";
+      
+        fs.writeFile(filename, JSON.stringify(data, null, '\t'), function(err) {
+      
+          if (err) {
+            return console.log(err);
+          }
+      
+          console.log("Success!");
+      
+        });
+  });
+}
 
-];
 
 // function writeToFile("README.md", Markdown) {
 // }
