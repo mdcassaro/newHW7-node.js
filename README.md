@@ -1,9 +1,9 @@
 {
-	"name": "mi",
-	"project": "fd",
-	"description": "sd",
-	"license": "fd",
-	"repo": "sdf",
-	"contributing": "sad",
-	"email": "fgrd"
+	"name": "k",
+	"project": "k",
+	"description": "k",
+	"license": "k",
+	"repo": "k",
+	"contributing": "k",
+	"email": "k"
 }

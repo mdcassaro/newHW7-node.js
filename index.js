@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
+const axios = require("axios");
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -16,6 +17,11 @@ function promptUser() {
         type: "input",
         name: "project",
         message: "What is your project's name?"
+      },
+      {
+        type: "input",
+        name: "username",
+        message: "What is your gitHub username?"
       },
       {
         type: "input",
@@ -55,8 +61,19 @@ function promptUser() {
           console.log("Success!");
       
         });
-  });
-}
+  })  .then(function({ username }) {
+    const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
+
+    axios
+    .get(queryUrl)
+    .then(function(res) {
+      const repoNames = res.data.map(function(repo) {
+        return repo.name;
+    });
+    })
+  
+});
+};
 
 
 // function writeToFile("README.md", Markdown) {
